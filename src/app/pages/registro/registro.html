@@ -1,0 +1,20 @@
+<form [formGroup]="RegistroFg" class="card">
+  <div class="avatar">🔐</div>
+  <h2>Crear Cuenta</h2>
+
+  <label>Nombre</label>
+  <input type="text" placeholder="Tu nombre" formControlName="nombre" />
+
+  <label>Correo</label>
+  <input type="email" placeholder="correo@ejemplo.com" formControlName="email" />
+
+  <label>Contraseña</label>
+  <input type="password" placeholder="••••••••" formControlName="clave" />
+
+  <label>Confirmar Contraseña</label>
+  <input type="password" placeholder="••••••••" formControlName="claveConf" />
+
+  <button (click)="Registrar()">Registrarse</button>
+
+  <div class="link"><span>¿Ya tienes cuenta? </span> <a routerLink="login">Inicia sesión</a></div>
+</form>

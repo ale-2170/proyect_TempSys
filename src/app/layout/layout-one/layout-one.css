@@ -1,0 +1,10 @@
+.auth-layout {
+  width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #4b2b6f, #8a3a6d);
+}

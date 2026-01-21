@@ -1,0 +1,119 @@
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  border-right: 1px solid var(--border-color);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+
+/* Nav */
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* li */
+.nav-item {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* a */
+.nav-link {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.nav-link:hover {
+  background: var(--card-bg);
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Active route */
+.nav-link.active {
+  background: var(--card-bg);
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+/* User profile bottom */
+.user-profile {
+  margin-top: auto;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Avatar */
+.user-profile img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+  padding: 3px;
+  box-shadow: 0 6px 20px rgba(0, 229, 255, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Name */
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Hover */
+.user-profile:hover img {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 229, 255, 0.45);
+}
+
+.user-profile:hover .user-name {
+  color: var(--primary);
+}
+
+
+

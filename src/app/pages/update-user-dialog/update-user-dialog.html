@@ -1,0 +1,37 @@
+<form [formGroup]="fgUsuario" class="card">
+  <div class="avatar">👤</div>
+  <h2>Gestión de Usuario</h2>
+
+  <!-- Nombre -->
+  <label>Nombre</label>
+  <input type="text" placeholder="Nombre del usuario" formControlName="nombre" />
+
+  <!-- Correo -->
+  <label>Correo</label>
+  <input type="email" placeholder="correo@ejemplo.com" formControlName="correo" />
+
+  <!-- Es Admin -->
+  <div class="switch-group">
+    <span>Es Admin</span>
+    <label class="switch">
+      <input type="checkbox" formControlName="isAdmin" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Usuario Activo -->
+  <div class="switch-group">
+    <span>Usuario Activo</span>
+    <label class="switch">
+      <input type="checkbox" formControlName="activo" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Acciones -->
+  <div class="actions">
+    <button class="btn-update" [disabled]="fgUsuario.invalid" (click)="guardar()">Guardar</button>
+
+    <button class="btn-delete" type="button" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>

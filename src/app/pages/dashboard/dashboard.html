@@ -1,0 +1,62 @@
+<header>
+  <div class="view-title">
+    <h2 id="page-title">Monitoring Dashboard</h2>
+    <p id="page-subtitle">Visualización del cuarto de servidores</p>
+  </div>
+  <div class="user-profile"></div>
+</header>
+
+<!-- Dashboard View -->
+<div id="dashboard-view">
+  <div class="dashboard-grid">
+    <!-- Temperature Card -->
+    <div class="stats-card temp">
+      <div class="stats-header">
+        <span>Temperatura Actual</span>
+        <!-- <i data-lucide="thermometer-sun"></i> -->
+      </div>
+      <div class="stats-value">
+        <span id="current-temp">{{ tempNow }}</span>
+        <span class="stats-unit">°C</span>
+      </div>
+    </div>
+
+    <!-- Humidity Card -->
+    <div class="stats-card hum">
+      <div class="stats-header">
+        <span>Humedad Relativa</span>
+        <!-- <i data-lucide="droplets"></i> -->
+      </div>
+      <div class="stats-value">
+        <span id="current-hum">{{ humedaNow }}</span>
+        <span class="stats-unit">%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-header">
+      <div class="header-eventos">
+        <h2>Histórico de Eventos</h2>
+
+        <div class="sub-info">
+          <span>Humedad Relativa: {{ humedadAfter }}%</span>
+          <span>Temperatura Actual: {{ tempAfter }}</span>
+        </div>
+      </div>
+      <select
+        class="custom-select"
+        [(ngModel)]="selectedMinutes"
+        (change)="getTempByTime(selectedMinutes)"
+      >
+        <option value="0" disabled>Seleccionar rango de tiempo</option>
+
+        <option value="10">Últimos 10 minutos</option>
+        <option value="60">Última hora</option>
+        <option value="300">Últimas 5 horas</option>
+        <option value="1440">Últimas 24 horas</option>
+      </select>
+    </div>
+    <canvas id="tempChart"></canvas>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<header>
+  <div class="view-title">
+    <h1>Usuarios</h1>
+    <p>Gestión de usuarios del sistema</p>
+  </div>
+</header>
+
+<!-- User Management -->
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Estado</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (item of usuario; track $index) {
+      <tr>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.email }}</td>
+        <td>
+          <span class="status-badge" [ngClass]="item.estado ? 'status-active' : 'status-inactive'">
+            {{ item.estado ? 'Activo' : 'Inactivo' }}
+          </span>
+        </td>
+
+        <td>
+          <span class="status-badge" [ngClass]="item.isAdmin ? 'status-admin' : 'status-user'">
+            {{ item.isAdmin ? 'Admin' : 'Usuario' }}
+          </span>
+        </td>
+        <td class="action-icons">
+          <i
+            class="fa-solid fa-pen-to-square action-icon edit"
+            title="Editar"
+            (click)="openDialog(item.id)"
+          ></i>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  <!-- Table Footer / Pagination -->
+  <div class="table-footer">
+    <div class="pagination-info">
+      Mostrando <span>{{ page }} - {{ totalPage }}</span> de <span>{{ totalItems }}</span> usuarios
+    </div>
+    <div class="pagination-controls">
+      <button class="page-btn" title="Anterior" (click)="BackPagination()">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="page-dropdown">
+        <select
+          class="page-select"
+          [(ngModel)]="pageSize"
+          (change)="ReloadUserPagination(1, pageSize)"
+        >
+          <option [ngValue]="10">10</option>
+          <option [ngValue]="20">20</option>
+          <option [ngValue]="30">30</option>
+          <option [ngValue]="40">40</option>
+          <option [ngValue]="50">50</option>
+        </select>
+      </div>
+      <button class="page-btn" title="Siguiente" (click)="NextPagination()">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

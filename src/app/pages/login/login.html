@@ -1,0 +1,19 @@
+<div class="page">
+  <form [formGroup]="loginFg" class="card">
+    <div class="avatar">👤</div>
+    <h2>Iniciar Sesión</h2>
+
+    <label>Correo</label>
+    <input type="email" formControlName="email" placeholder="correo@ejemplo.com" />
+
+    <label>Contraseña</label>
+    <input type="password" formControlName="clave" placeholder="••••••••" />
+
+    <button type="button" (click)="IniciarSesion()">Ingresar</button>
+
+    <div class="link">
+      <span>¿No tienes cuenta? </span>
+      <a routerLink="/registro">Regístrate</a>
+    </div>
+  </form>
+</div>
